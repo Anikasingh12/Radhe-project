@@ -21,7 +21,8 @@
 }
 
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
+html, body { margin: 0; padding: 0; overflow-x: hidden; scroll-behavior: smooth; }
+body { overflow-anchor: none; }
 body { background: var(--bg); font-family: var(--font); font-size: 14px; color: var(--text); }
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; }
@@ -29,6 +30,9 @@ img { max-width: 100%; display: block; }
 input { font-family: inherit; }
 
 .mobile-only { display: none !important; }
+.upto-tablet { display: none !important; }
+.scrollmenu-wrap { display: contents; }
+@media (max-width: 991px) { .upto-tablet { display: revert !important; } }
 @media (max-width: 767px) {
   .mobile-only { display: revert !important; }
   .desktop-only { display: none !important; }
@@ -123,10 +127,9 @@ input { font-family: inherit; }
 .navbar ul { overflow: visible; }
 .navbar { position: relative; }
 .navbar li { position: relative; }
-.navbar a 
 /* ---------- Mobile icon strip ---------- */
 .scrollmenu {
-  overflow-x: auto; background: var(--nav); scrollbar-width: none; padding-top: 6px;
+  overflow-x: auto; background: var(--nav); padding-top: 6px;
 }
 .scrollmenu a {
   position: relative; flex: none; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
@@ -162,15 +165,15 @@ input { font-family: inherit; }
 @media (max-width: 767px) { .hero { aspect-ratio: 390 / 155; } .hero-dots { display: none; } }
 
 .promos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 11px 9px 0; }
-.promos img { height: 190px; object-fit: cover; }
+.promos img { height: auto; aspect-ratio: 470 / 190; object-fit: cover; }
 .promos img { width: 100%; border-radius: 14px; }
 @media (max-width: 767px) {
   .promos { grid-template-columns: 1fr 1fr; padding: 4px 3px; gap: 6px; }
   .promos a:nth-child(3) { display: none; }
   .promos img { border-radius: 8px; }
 }
-.gif-banners { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 11px 6px 0; }
-.gif-banners img { width: 100%; height: 121px; object-fit: cover; background: #000; }
+.gif-banners { display: grid; grid-template-columns: 49.5% 49.5%; gap: 1%; padding: 11px 6px 0; }
+.gif-banners img { width: 100%; height: auto; aspect-ratio: 707 / 121; object-fit: cover; background: #000; }
 @media (max-width: 767px) { .gif-banners { grid-template-columns: 1fr; gap: 4px; padding: 3px 0; } .gif-banners img { height: 70px; } }
 
 .top-games { padding: 0 6px; margin: 9px 0 10px; }
@@ -187,7 +190,6 @@ input { font-family: inherit; }
 }
 .tg-wrap:hover .tg-nav { opacity: 1; }
 .tg-nav.prev { left: 0; } .tg-nav.next { right: 0; }
-@media (max-width: 1100px) { .tg-item { flex-basis: calc((100% - 30px) / 6); } }
 @media (max-width: 767px) { .tg-item { flex-basis: calc((100% - 18px) / 4); } .top-games { padding: 0; } }
 
 .apk-banner { display: block; margin: 0 6px; }
@@ -294,8 +296,10 @@ input { font-family: inherit; }
 .side-event:hover { text-decoration: underline; }
 
 @media (max-width: 767px) {
-  .inner { display: block; min-height: 0; }
   .inner-content { padding: 0; }
+}
+@media (max-width: 991px) {
+  .inner { display: block; min-height: 0; }
   .sidebar {
     position: fixed; top: 0; left: 0; bottom: 0; width: 270px; z-index: 80; transform: translateX(-100%);
     transition: transform .25s; overflow-y: auto; min-height: 0;
@@ -784,20 +788,21 @@ input { font-family: inherit; }
   .header-right { margin-right: -10px; }
 
   /* Icon menu: 51px */
-  .scrollmenu { padding: 0; height: 51px; background: #045662; }
+  .scrollmenu { padding: 0; height: auto; background: #045662; }
+  .scrollmenu a { height: 51px; }
   .scrollmenu a { min-width: 0; padding: 6px 15px 3px; justify-content: flex-start; font-size: 12px; font-weight: 700; line-height: 18px; }
   .scrollmenu a .sports-icon { margin: 0 auto; }
   .scrollmenu .sm-aviator { width: 35px; height: 23px; margin-bottom: 1px; }
   .scrollmenu .sm-chicken { width: 50px; height: 20px; margin: 4px 0 0; }
   /* Landing banners */
-  .hero { aspect-ratio: auto; height: 152px; margin-bottom: 0; }
+  .hero { aspect-ratio: 390 / 152; height: auto; margin-bottom: 0; }
   .promos {
-    display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; gap: 0; padding: 0; margin: 9px 0 5px; height: 82px;
+    display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; gap: 0; padding: 0 0 6px; margin: 9px 0 5px;
   }
   .promos a, .promos a:nth-child(3) { display: block !important; flex: 0 0 50%; padding: 0 3px; scroll-snap-align: start; }
-  .promos img { width: 100%; height: 76px; border-radius: 5px; object-fit: cover; }
+  .promos img { width: 100%; height: auto; aspect-ratio: 189 / 76; border-radius: 5px; object-fit: cover; }
   .gif-banners { grid-template-columns: 1fr; gap: 4px; padding: 0; margin: -4px 0 5px; }
-  .gif-banners img { height: 67px; }
+  .gif-banners img { height: auto; aspect-ratio: 390 / 67; }
   .top-games { margin: 5px 0; padding: 0; }
   .top-games h3 { margin: 0 0 2px; }
   .tg-track { padding: 0 0 6px; gap: 0; }
@@ -805,7 +810,7 @@ input { font-family: inherit; }
   .tg-item img { aspect-ratio: auto; width: 92px; height: 65px; border-radius: 5px; }
   .home .top-games + .odds-table { margin-top: 0; }
   .apk-banner { margin: 0; }
-  .apk-banner img { height: 52px; border-radius: 10px; object-fit: cover; }
+  .apk-banner img { height: auto; aspect-ratio: 390 / 52; border-radius: 10px; object-fit: cover; }
 
   /* Sport sections: card rows */
   .odds-table, .inner-content .odds-table { margin: 0; background: #fff; }
@@ -1016,4 +1021,93 @@ input { font-family: inherit; }
   .bal-pills { margin-top: 10.5px; }
   .bal-pill { align-items: baseline; }
   .bal-pill img { height: auto; align-self: flex-start; margin-top: .6px; }
+}
+
+/* ---------- Tablet (768-1199px): icon menu like the original ---------- */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .navbar.desktop-only { display: none !important; }
+  .scrollmenu-wrap { display: block; height: 55px; }
+  .scrollmenu.tablet-nav { display: flex !important; height: auto; padding: 0; background: #045662; position: relative; z-index: 5; }
+  .scrollmenu a { height: 51px; }
+  .scrollmenu a { min-width: 0; padding: 6px 15px 3px; justify-content: flex-start; font-size: 12px; font-weight: 700; line-height: 18px; }
+  .scrollmenu a .sports-icon { margin: 0 auto; }
+  .scrollmenu .sm-aviator { width: 35px; height: 23px; margin-bottom: 1px; }
+  .scrollmenu .sm-chicken { width: 50px; height: 20px; margin: 4px 0 0; }
+  .scrollmenu .tag-live { top: 8px; right: 3px; }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .hamburger { font-size: 22px; line-height: 22px; padding: 0; margin: 0 5px 0 0; width: 19px; }
+}
+
+/* Icon menu scrollbar: same look as the original shows it (12px strip, 6px grey rounded thumb) */
+@media (min-width: 768px) {
+  .scrollmenu::-webkit-scrollbar { height: 12px; background: #0c4e57; }
+  .scrollmenu::-webkit-scrollbar-track { background: #0c4e57; border-radius: 0; }
+  .scrollmenu::-webkit-scrollbar-thumb {
+    background-color: #8d8d8d; border-radius: 12px; border: 3px solid #0c4e57; background-clip: padding-box;
+  }
+  .scrollmenu::-webkit-scrollbar-thumb:hover { background-color: #a8a8a8; }
+}
+
+/* ---------- Pinned header (original: .header-fix is position:fixed from 768px up) ---------- */
+.header-spacer { display: none; }
+@media (min-width: 768px) {
+  .header-fix { position: fixed; top: 0; left: 0; right: 0; z-index: 75; }
+  .header-spacer { display: block; }
+}
+
+/* ---------- Footer, measured on the original (.partner_logo / .footer-providers__list) ---------- */
+.footer .rules { font-family: Poppins, sans-serif; }
+@media (min-width: 768px) {
+  .footer { background: #045662; border-top: 1px solid #606060; }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .footer .providers { height: auto; padding-top: 0; align-items: center; }
+  .provider-cell { width: 111px; height: 63px; padding: 10px; box-sizing: border-box; }
+  .providers img { width: 91px; height: 43px; max-width: none; object-fit: contain; }
+  .provider-cell.p18 { width: 69px; padding: 10px 13px; }
+  .providers .plus18 { width: 43px; height: 43px; }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .footer .providers { height: auto; padding-top: 0; align-items: center; }
+  .provider-cell { width: 75px; height: 45px; padding: 10px; box-sizing: border-box; }
+  .providers img { width: 55px; height: 25px; max-width: none; object-fit: contain; }
+  .provider-cell.p18 { width: 51px; padding: 10px 13px; }
+  .providers .plus18 { width: 25px; height: 25px; }
+}
+
+/* ---------- Top Games row: slides per view as on the original (9 / 7 from 992px / 6 from 768px) ---------- */
+@media (min-width: 768px) {
+  .tg-track { gap: 0; padding: 0 0 6px; }
+  .tg-item { flex: 0 0 calc(100% / 9); padding: 0 3px; box-sizing: border-box; }
+}
+@media (min-width: 992px) and (max-width: 1199px) { .tg-item { flex-basis: calc(100% / 7); } }
+@media (min-width: 768px) and (max-width: 991px) { .tg-item { flex-basis: calc(100% / 6); } }
+
+/* ---------- Phone footer spacing as on the original (.partner_logo margin-bottom; no extra page padding) ---------- */
+@media (max-width: 767px) {
+  .app:has(.footer) { padding-bottom: 0; }
+  .footer { margin-bottom: 60px; }
+}
+@media (max-width: 575px) { .footer { margin-bottom: 55px; } }
+@media (max-width: 469px) { .footer { margin-bottom: 40px; } }
+@media (max-width: 390px) { .footer { margin-bottom: 45px; } }
+@media (max-width: 320px) { .footer { margin-bottom: 35px; } }
+
+/* Requested: every box on the landing page 1px narrower (tablet + desktop) */
+@media (min-width: 768px) {
+  .promos img, .gif-banners img, .tg-item img, .apk-banner img { width: calc(100% - 1px); }
+  .home .odds-table { width: calc(100% - 1px); }
+}
+
+/* Requested: cards ~1px shorter on tablet widths (width unchanged, aspect ratio trimmed) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .promos img { aspect-ratio: 470 / 188.4; }   /* ~119.9px -> ~118.9px at 297px wide */
+  .gif-banners img { aspect-ratio: 707 / 119.4; } /* ~76px -> ~75px at 445px wide */
+  .tg-item img { aspect-ratio: 153 / 107; }      /* ~101px -> ~100px at 143px wide */
+}
+
+/* Requested: main banner 3px shorter on tablet widths to match the original's height */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .home .hero { aspect-ratio: auto; height: calc(100vw * 477 / 1440 - 3px); }
 }

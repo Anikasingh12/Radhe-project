@@ -24,7 +24,7 @@ export const ASSETS = {
     d: `${CDN}/banners/desktop_banner_${n}.jpg`,
     m: `${CDN}/banners/mobile_banner_${n}.jpg`,
   })),
-  apkBanner: "/diamondx-apk-banner.webp",
+  apkBanner: `${CDN}/rde/login/pg-banner.webp`,
   gifBanners: [`${CDN}/rde/login/RDGIF-1.gif`, `${CDN}/rde/login/RDGIF-2.gif`],
   heroDesktop: [0, 1, 2, 3, 4, 5].map((i) => `${CDN}/rde/login/main-banner${i}.webp`),
   heroMobile: [0, 1, 2, 3, 4, 5].map((i) => `${CDN}/rde/login/main-banner-mobile${i}.webp`),

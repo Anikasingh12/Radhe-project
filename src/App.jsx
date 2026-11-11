@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Navigate, Route, Routes, useLocation, useParams } from 'react-router-dom';
 import AccountDrawer from './components/AccountDrawer';
 import AccountModals, { Toast } from './components/AccountModals';
@@ -60,6 +60,16 @@ function EventRoute(props) {
 export default function App() {
   const { isLoggedIn } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  // The header is position:fixed from 768px up (like the original); a spacer keeps the content below it.
+  const headerRef = useRef(null);
+  const [headerH, setHeaderH] = useState(0);
+  useEffect(() => {
+    const el = headerRef.current;
+    if (!el) return undefined;
+    const ro = new ResizeObserver(() => setHeaderH(el.offsetHeight));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
   const loc = useLocation();
   const isLanding = !isLoggedIn && (loc.pathname === '/home' || loc.pathname === '/auth');
 
@@ -78,14 +88,18 @@ export default function App() {
   return (
     <div className={`app ${isLoggedIn ? 'is-logged-in' : ''}`}>
       <AppBanner />
-      {!isLoggedIn && <TopBar />}
-      <Header onMenu={() => setSidebarOpen(true)} />
-      {isLoggedIn && <Marquee />}
-      <NavMenu />
+      {/* Pinned to the top from 768px up, like the original's .header-fix */}
+      <div className="header-fix" ref={headerRef}>
+        {!isLoggedIn && <TopBar />}
+        <Header onMenu={() => setSidebarOpen(true)} />
+        {isLoggedIn && <Marquee />}
+        <NavMenu />
+      </div>
+      <div className="header-spacer" style={{ height: headerH }} />
 
-      {/* On the landing page the sidebar is only used as the mobile drawer */}
+      {/* On the landing page the sidebar is only used as the mobile/tablet drawer */}
       {isLanding && (
-        <div className="mobile-only">
+        <div className="upto-tablet">
           <Sidebar open={sidebarOpen} onClose={layout.closeSidebar} />
         </div>
       )}

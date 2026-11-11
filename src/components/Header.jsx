@@ -10,7 +10,7 @@ export default function Header({ onMenu }) {
 
   return (
     <header className={`header ${isLoggedIn ? 'logged-in' : ''}`}>
-      <button className="hamburger mobile-only" onClick={onMenu} aria-label="menu">
+      <button className="hamburger upto-tablet" onClick={onMenu} aria-label="menu">
         <i className="fas fa-bars" />
       </button>
       <Link to="/home" className="logo">

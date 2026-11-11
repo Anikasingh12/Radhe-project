@@ -67,22 +67,25 @@ export default function NavMenu() {
         </ul>
       </nav>
 
-      {/* Mobile icon strip */}
-      <nav className="scrollmenu mobile-only">
-        {MENU_ITEMS.filter((m) => !m.desktopOnly && !m.sidebarOnly).map((m) => (
-          <NavLink key={m.to} to={m.to} onClick={() => setClicked(m.to)} className={() => (isOn(m.to) ? 'active' : '')}>
-            {m.live && <LiveBadge n={liveCount[m.live] || 0} />}
-            {m.icon === 'aviator' ? (
-              <img src={ASSETS.aviatorIcon} alt="" className="sm-aviator" />
-            ) : m.icon === 'chicken' ? (
-              <img src={ASSETS.chickenIcon} alt="" className="sm-chicken" />
-            ) : (
-              <SportIcon name={m.icon} size={28} />
-            )}
-            <span className={m.cls}>{m.label}</span>
-          </NavLink>
-        ))}
-      </nav>
+      {/* Mobile + tablet icon strip */}
+      {/* On tablets the strip sits in a fixed 55px slot (51px menu + 4px), like the original */}
+      <div className="scrollmenu-wrap">
+        <nav className="scrollmenu mobile-only tablet-nav">
+          {MENU_ITEMS.filter((m) => !m.desktopOnly && !m.sidebarOnly).map((m) => (
+            <NavLink key={m.to} to={m.to} onClick={() => setClicked(m.to)} className={() => (isOn(m.to) ? 'active' : '')}>
+              {m.live && <LiveBadge n={liveCount[m.live] || 0} />}
+              {m.icon === 'aviator' ? (
+                <img src={ASSETS.aviatorIcon} alt="" className="sm-aviator" />
+              ) : m.icon === 'chicken' ? (
+                <img src={ASSETS.chickenIcon} alt="" className="sm-chicken" />
+              ) : (
+                <SportIcon name={m.icon} size={28} />
+              )}
+              <span className={m.cls}>{m.label}</span>
+            </NavLink>
+          ))}
+        </nav>
+      </div>
     </>
   );
 }
