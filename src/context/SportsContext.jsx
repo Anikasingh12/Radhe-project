@@ -4,8 +4,8 @@ import { useLocation } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 
 const SportsContext = createContext(null);
-const BETS_KEY = 'r777_bets';
-const PINS_KEY = 'r777_pins';
+const BETS_KEY = 'diamondx_bets';
+const PINS_KEY = 'diamondx_pins';
 
 export function SportsProvider({ children }) {
   const { user, updateUser, notify } = useAuth();

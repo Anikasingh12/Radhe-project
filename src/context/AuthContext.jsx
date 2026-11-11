@@ -3,9 +3,9 @@ import * as api from '../api';
 import { STAKE_PRESETS } from '../config';
 
 const AuthContext = createContext(null);
-const STORAGE_KEY = 'r777_session';
-const STAKE_KEY = 'r777_stakes';
-const REMEMBER_KEY = 'r777_remember';
+const STORAGE_KEY = 'diamondx_session';
+const STAKE_KEY = 'diamondx_stakes';
+const REMEMBER_KEY = 'diamondx_remember';
 
 function loadSession() {
   try {

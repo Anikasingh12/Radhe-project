@@ -3,10 +3,10 @@ import { ASSETS } from '../config';
 
 /** "Download Android Application" strip shown on mobile only. */
 export default function AppBanner() {
-  const [open, setOpen] = useState(() => sessionStorage.getItem('r777_apk_closed') !== '1');
+  const [open, setOpen] = useState(() => sessionStorage.getItem('diamondx_apk_closed') !== '1');
   if (!open) return null;
   const close = () => {
-    sessionStorage.setItem('r777_apk_closed', '1');
+    sessionStorage.setItem('diamondx_apk_closed', '1');
     setOpen(false);
   };
   return (

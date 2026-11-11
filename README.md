@@ -1,8 +1,8 @@
 # Radhe-project
 
-R777 React frontend replica.
+DiamondX React frontend replica.
 
-React rebuild of the R777 frontend (Vite + React 19 + React Router).
+React rebuild of the DiamondX frontend (Vite + React 19 + React Router).
 Images are loaded from the existing static CDN (`images.staticcontents.net`).
 
 ## Run

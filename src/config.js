@@ -1,10 +1,10 @@
 // Central place for asset URLs and site configuration.
-// All images are served from the existing R777 static CDN.
+// All images are served from the existing static CDN (branding: DiamondX).
 
 export const CDN = 'https://images.staticcontents.net';
 
 export const ASSETS = {
-  logo: `${CDN}/rde/uimg/r77/brand_logo.svg`,
+  logo: "/diamondx-logo.svg",
   apkIcon: `${CDN}/casino/img/apkicon.webp`,
   sportsSprite: `${CDN}/casino/banner/images/sports-icons.png`,
   coin: `${CDN}/rde/uimg/coin.svg`,
@@ -24,7 +24,7 @@ export const ASSETS = {
     d: `${CDN}/banners/desktop_banner_${n}.jpg`,
     m: `${CDN}/banners/mobile_banner_${n}.jpg`,
   })),
-  apkBanner: `${CDN}/rde/login/r77/pg-banner.webp`,
+  apkBanner: "/diamondx-apk-banner.webp",
   gifBanners: [`${CDN}/rde/login/RDGIF-1.gif`, `${CDN}/rde/login/RDGIF-2.gif`],
   heroDesktop: [0, 1, 2, 3, 4, 5].map((i) => `${CDN}/rde/login/main-banner${i}.webp`),
   heroMobile: [0, 1, 2, 3, 4, 5].map((i) => `${CDN}/rde/login/main-banner-mobile${i}.webp`),
