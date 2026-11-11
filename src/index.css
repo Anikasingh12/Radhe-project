@@ -296,10 +296,10 @@ input { font-family: inherit; }
 .side-event:hover { text-decoration: underline; }
 
 @media (max-width: 767px) {
+  .inner { display: block; min-height: 0; }
   .inner-content { padding: 0; }
 }
 @media (max-width: 991px) {
-  .inner { display: block; min-height: 0; }
   .sidebar {
     position: fixed; top: 0; left: 0; bottom: 0; width: 270px; z-index: 80; transform: translateX(-100%);
     transition: transform .25s; overflow-y: auto; min-height: 0;
@@ -1110,4 +1110,37 @@ input { font-family: inherit; }
 /* Requested: main banner 3px shorter on tablet widths to match the original's height */
 @media (min-width: 768px) and (max-width: 1199px) {
   .home .hero { aspect-ratio: auto; height: calc(100vw * 477 / 1440 - 3px); }
+}
+
+/* ---------- /wbbl tournament page header (measured on the original) ---------- */
+.wbbl-title {
+  display: flex; align-items: center; height: 28px; padding: 6px 10px 6px 7px; background: #18adc5; color: #fff;
+  font-size: 15px; font-weight: 700; line-height: 19px;
+}
+.wbbl-title .mkt-pin { margin: 0 3px 0 -4px; }
+.wbbl-info {
+  display: flex; justify-content: space-between; align-items: center; height: 29px; padding: 5px 5px 5px 5px;
+  background: #03334a; color: #fff; font-size: 12px; line-height: 17px;
+}
+.wbbl-info i { font-size: 11px; }
+@media (max-width: 1199px) { .wbbl-info { font-size: 11px; } }
+.wbbl-info { background: #01141d; }
+/* Suspended rows on the WBBL page: the original's .suspended-winnerodds overlay */
+.wbbl-page .row-suspended {
+  inset: 0 2px 0 0; height: 36px; border-radius: 0; color: red; font-size: 12px; font-weight: 700; line-height: 33px;
+  background: url(https://images.staticcontents.net/rde/uimg/bg-disabled.png) rgba(0, 0, 0, .5);
+}
+
+/* ---------- Event / WBBL market rows on phones (measured on the original: 60% name | 40% prices, 75px cells) ---------- */
+@media (max-width: 767px) {
+  .event-page .mkt-row { grid-template-columns: 60% 40%; min-height: 41px; }
+  .event-page .runner { padding: 0 0 0 3px; }
+  .event-page .depth { grid-template-columns: repeat(2, 75px); column-gap: 2px; padding: 0 0 0 1px; }
+  .event-page .depth .odd { width: 75px; }
+  .event-page .bl-head { grid-template-columns: 60% 40%; height: 25px; align-items: start; padding-top: 2px; }
+  .event-page .bl-limits { padding: 4px 0 0 1px; line-height: 13px; }
+  .event-page .bl-tabs { grid-template-columns: repeat(2, 75px) !important; column-gap: 2px; padding-left: 1px; }
+  .event-page .bl-tabs span { height: 21px; line-height: 21px; }
+  .event-page .row-suspended { inset: 0 0 0 1px; height: 36px; }
+  .mkt-bar .mkt-toggle { margin-left: auto; }
 }

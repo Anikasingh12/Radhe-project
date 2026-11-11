@@ -14,7 +14,7 @@ const fmtDate = (iso) => {
 };
 
 /** Teal market bar: pin, title, min/max, collapse toggle. */
-function MarketBar({ title, min, max, open, onToggle }) {
+export function MarketBar({ title, min, max, open, onToggle }) {
   return (
     <div className="mkt-bar">
       <span className="mkt-pin">
@@ -32,7 +32,7 @@ function MarketBar({ title, min, max, open, onToggle }) {
 }
 
 /** Row above the price grid holding the rounded Back / Lay tabs. */
-function BackLayHead({ min, max, labels = ['Back', 'Lay'], cols = 6 }) {
+export function BackLayHead({ min, max, labels = ['Back', 'Lay'], cols = 6 }) {
   return (
     <div className="bl-head">
       <span className="mobile-only bl-limits">

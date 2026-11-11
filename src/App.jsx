@@ -10,6 +10,7 @@ import Header from './components/Header';
 import LoginModal from './components/LoginModal';
 import Marquee from './components/Marquee';
 import NavMenu from './components/NavMenu';
+import WbblWinner from './pages/WbblWinner';
 import Sidebar from './components/Sidebar';
 import TopBar from './components/TopBar';
 import { CASINOS, SPORTS } from './config';
@@ -117,7 +118,7 @@ export default function App() {
         <Route path="/cricket" element={<Navigate to="/game/4" replace />} />
         <Route path="/soccer" element={<Navigate to="/game/1" replace />} />
         <Route path="/tennis" element={<Navigate to="/game/2" replace />} />
-        <Route path="/wbbl" element={inner(<Sport key="wbbl" sport="wbbl" />, true)} />
+        <Route path="/wbbl" element={inner(<WbblWinner />, true)} />
         <Route path="/event/:id" element={<EventRoute {...layout} />} />
         <Route path="/account-statement" element={inner(<Reports type="statement" />)} />
         <Route path="/profit-loss" element={inner(<Reports type="pl" />)} />

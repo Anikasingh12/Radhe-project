@@ -72,7 +72,7 @@ export default function NavMenu() {
       <div className="scrollmenu-wrap">
         <nav className="scrollmenu mobile-only tablet-nav">
           {MENU_ITEMS.filter((m) => !m.desktopOnly && !m.sidebarOnly).map((m) => (
-            <NavLink key={m.to} to={m.to} onClick={() => setClicked(m.to)} className={() => (isOn(m.to) ? 'active' : '')}>
+            <NavLink key={m.to} to={m.to} onClick={() => setClicked(m.to)} className={() => (isOn(m.to) || (m.to === '/wbbl' && pathname === '/wbbl') ? 'active' : '')}>
               {m.live && <LiveBadge n={liveCount[m.live] || 0} />}
               {m.icon === 'aviator' ? (
                 <img src={ASSETS.aviatorIcon} alt="" className="sm-aviator" />
