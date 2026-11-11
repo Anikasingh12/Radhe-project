@@ -4,7 +4,7 @@
 export const CDN = 'https://images.staticcontents.net';
 
 export const ASSETS = {
-  logo: "/diamondx-logo.svg",
+  logo: `${CDN}/rde/uimg/brand_logo.svg`,
   apkIcon: `${CDN}/casino/img/apkicon.webp`,
   sportsSprite: `${CDN}/casino/banner/images/sports-icons.png`,
   coin: `${CDN}/rde/uimg/coin.svg`,
