@@ -1,7 +1,7 @@
 // Central place for asset URLs and site configuration.
-// All images are served from the existing static CDN (branding: DiamondX).
+// Images are served locally from public/images (mirrored from images.staticcontents.net by scripts/pull_images.py).
 
-export const CDN = 'https://images.staticcontents.net';
+export const CDN = '/images/images.staticcontents.net';
 
 export const ASSETS = {
   logo: `${CDN}/rde/uimg/brand_logo.svg`,
@@ -110,7 +110,7 @@ export const stakeLabel = (v) => (v === 500 ? '500l' : String(v));
 // Logged-in lobby behaviour measured on the original.
 export const LOBBY_HEAD_LOGGED_IN = { casino3: 'Casino', royalcasino: 'Casino', indianpoker: 'Casino', spribe: 'Spribe' };
 export const LOBBY_POPUP = ['evolution', 'vivo', 'betgames', 'casino3', 'spribe', 'inout'];
-export const CASINO_POPUP_IMG = 'https://images.staticcontents.net/casino/banner/images/casinopoint100.webp';
+export const CASINO_POPUP_IMG = '/images/images.staticcontents.net/casino/banner/images/casinopoint100.webp';
 
 // Logged-in marquee (served by /marketprovider/marquee on the original).
 export const LOGGED_IN_MARQUEE = ' 1️⃣Welcome To Our Exchange .....✨✨ 2️⃣WBBL 2026  ..Winner Cup Bets Started In Our Exchange.......✨✨';
